@@ -1,8 +1,8 @@
 package com.example.uddhav.memoryuse;
 
 import android.app.ActivityManager;
-import android.os.Handler;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -11,21 +11,19 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static ProgressBar progressBar;
-    private Runtime runtime = Runtime.getRuntime();
     private static Handler mainHandler;
-    private static boolean flag = true;
     private Thread thread;
     private TextView percentTextView;
 
     public void setUsedMemory(final double usedPart) {
         final double usedPercentage = 100 * usedPart;
-        Log.i("percentUsed", usedPercentage+"");
+        Log.i("percentUsed", usedPercentage + "");
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 progressBar.setProgress((int) usedPercentage);
-                percentTextView.setText(""+ (double) Math.round(usedPercentage * 100.0000) / 100.0000);
+                percentTextView.setText("" + (double) Math.round(usedPercentage * 100.0000) / 100.0000);
 
                 try {
                     thread.sleep(1000);
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                Log.i("used", getUsedMemoryPercent()+"");
+                Log.i("used", getUsedMemoryPercent() + "");
                 setUsedMemory(getUsedMemoryPercent());
             }
         };
@@ -79,4 +77,4 @@ public class MainActivity extends AppCompatActivity {
         return percentUsed;
     }
 
-   }
+}
