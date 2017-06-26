@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 progressBar.setProgress((int) usedPercentage);
                 percentTextView.setText("" + (double) Math.round(usedPercentage * 100.0000) / 100.0000);
 
+
                 try {
                     thread.sleep(1000);
                 } catch (InterruptedException e) {
